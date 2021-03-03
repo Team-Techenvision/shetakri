@@ -1,4 +1,7 @@
-<?php include '../include/header.php'; ?>
+<?php 
+    require_once('../include/master.inc'); 
+    include '../include/header.php'; 
+?>
     <!-- ============================================================== -->
     <!-- Preloader - style you can find in spinners.css -->
     <!-- ============================================================== -->

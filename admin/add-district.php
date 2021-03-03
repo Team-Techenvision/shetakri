@@ -1,4 +1,15 @@
-<?php include '../include/header.php'; ?>
+<?php 
+    require_once('../include/master.inc'); 
+    include '../include/header.php'; 
+
+    if (isset($_POST['submit'])) {
+        // $_POST["statename"];
+        // $_POST["districtname"];
+        
+    }
+
+
+?>
     <!-- ============================================================== -->
     <!-- Preloader - style you can find in spinners.css -->
     <!-- ============================================================== -->
@@ -71,7 +82,7 @@
                     <div class="card">
                         <div class="card-body">
                             <h4 class="card-title">Add District</h4>
-                            <form name='registration'  method="POST">
+                            <form name="addDistrict" action=""  method="POST">
                  
                                 <div class="form-group">
                                     <h5>State Select <span class="text-danger">*</span></h5>
@@ -93,7 +104,7 @@
                                     </div>
                                 </div>
                                 <div class="text-xs-right">
-                                    <button type="submit" class="btn btn-info">Submit</button>
+                                    <button name="submit" type="submit" class="btn btn-info">Submit</button>
                                 </div>
                             </form>
                         </div>

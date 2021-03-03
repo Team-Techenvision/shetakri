@@ -17,7 +17,7 @@
                                 aria-expanded="false">
                                 <i class="ti-settings"></i>
                             </a>
-                            <a href="javascript:void(0)" title="Logout" class="btn btn-circle btn-sm">
+                            <a href="logout.php" title="Logout" class="btn btn-circle btn-sm">
                                 <i class="ti-power-off"></i>
                             </a>
                             <div class="dropdown-menu animated flipInY" aria-labelledby="Userdd">

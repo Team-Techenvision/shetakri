@@ -14,7 +14,7 @@
     if (isset($_POST['submit'])) {
     	$username = $_POST['username'];
     	$password = md5($_POST['password']);
-    	$sql = "SELECT * FROM adminusers WHERE username = '$username' && password = '$password' ";
+    	$sql = "SELECT * FROM ".USERS." WHERE username = '$username' && password = '$password' ";
 
         $objDB->query($sql);
         $result = $objDB->resultSet();              
@@ -49,7 +49,13 @@
     <title>AdminBite admin Template - The Ultimate Multipurpose admin template</title>
     
     <link href="dist/css/style.min.css" rel="stylesheet">
-  
+    <style type="text/css">
+        .error {
+            display: block;
+            width: 100%;
+            color: #f53838;
+        }
+    </style>  
 </head>
 
 <body>
@@ -80,12 +86,12 @@
                     <!-- Form -->
                     <div class="row">
                         <div class="col-12">
-                            <form class="form-horizontal m-t-20" id="loginform" action="" method="POST">
+                            <form class="form-horizontal m-t-20" name="loginform" id="loginform" action="" method="POST">
                                 <div class="input-group mb-3">
                                     <div class="input-group-prepend">
                                         <span class="input-group-text" id="basic-addon1"><i class="ti-user"></i></span>
-                                    </div>
-                                    <input type="text" class="form-control form-control-lg" placeholder="Username" name="username" aria-label="Username" aria-describedby="basic-addon1">
+                                    </div>                                    
+                                    <input type="text" class="form-control form-control-lg" placeholder="Username" name="username" aria-label="Username" aria-describedby="basic-addon1" >
                                 </div>
                                 <div class="input-group mb-3">
                                     <div class="input-group-prepend">
@@ -160,6 +166,7 @@
     <!-- All Required js -->
     <!-- ============================================================== -->
     <script src="assets/libs/jquery/dist/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.1/jquery.validate.min.js"></script>
     <!-- Bootstrap tether Core JavaScript -->
     <script src="assets/libs/popper.js/dist/umd/popper.min.js"></script>
     <script src="assets/libs/bootstrap/dist/js/bootstrap.min.js"></script>
@@ -176,6 +183,32 @@
         $("#loginform").slideUp();
         $("#recoverform").fadeIn();
     });
+
+    // Wait for the DOM to be ready
+    $(function() {
+      $("form[name='loginform']").validate({
+        // Specify validation rules
+        rules: {
+          username: "required",
+          password: {
+            required: true,
+            minlength: 5
+          }
+        },
+        // Specify validation error messages
+        messages: {
+          username: "Please enter your username",
+          password: {
+            required: "Please provide a password",
+            minlength: "Your password must be at least 5 characters long"
+          }
+        },
+        submitHandler: function(form) {
+          form.submit();
+        }
+      });
+    });
+
     </script>
 </body>
 

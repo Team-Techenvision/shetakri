@@ -11,8 +11,8 @@ if (!defined('USER')) 	define("USER","U");
 
 
 //Table Names
-if (!defined('USERS')) 		define('USERS','users');
-if (!defined('PRODUCTS')) 	define('PRODUCTS','products');
+if (!defined('USERS')) 		define('USERS','adminusers');
+if (!defined('BANNER')) 	define('BANNER','banner');
 if (!defined('PRODUCTSQUANTITY')) 	define('PRODUCTSQUANTITY','quantitydiscount');
 if (!defined('ORDERS')) 	define('ORDERS','orders');
 
@@ -25,9 +25,9 @@ define('DASH','DashBoard');
 define('PRODUCT','Product');
 define('ORDER','Order Management');
 
-define('DOMAIN_NAME','http://'.$_SERVER['SERVER_NAME'].'/kisan-2');
+define('DOMAIN_NAME','http://'.$_SERVER['SERVER_NAME'].'/kisan');
 
-define('FILE_PATH',$_SERVER['DOCUMENT_ROOT'].'/kisan-2');
+define('FILE_PATH',$_SERVER['DOCUMENT_ROOT'].'/kisan');
 $footer_copyright = '<div>&copy; '.TXDIRECT.'</div>';
 
 $htmlhead = '
