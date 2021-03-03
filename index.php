@@ -1,10 +1,34 @@
-<?php
-include_once 'config.php';
+<?php 
+	require_once('include/master.inc');		
+	$objDB = new Database();
 
+	if(!isset($_SESSION)){
+		session_start();
+	}
+	if( isset($_SESSION['user_name']) ) { 
+		header('location:'.DOMAIN_NAME.'/dashboard');
+		exit();
+	}
 
+// if (isset($_POST['submit'])) {
+// 	$username = $_POST['username'];
+// 	$password = md5($_POST['password']);
+// 	$sql = "SELECT * FROM adminusers WHERE username = '$username' && password = '$password' ";
+
+// 	$result = $conn->query($sql);
+
+// 	$row = $result->fetch_assoc();
+
+// 	if ( $result->num_rows == 1 ) {		
+// 		$_SESSION["role"] = $row["userole"];
+// 		$_SESSION["id"] = $row["id"];
+// 		$_SESSION["username"] = $row["username"];
+// 		echo "success";
+// 	}	
+// }
 
 ?>
-<!-- asdas -->
+
 
 <!DOCTYPE html>
 <html dir="ltr">
@@ -12,19 +36,20 @@ include_once 'config.php';
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <!-- Tell the browser to be responsive to screen width -->
+    
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
-    <!-- Favicon icon -->
+    
     <link rel="icon" type="image/png" sizes="16x16" href="../assets/images/favicon.png">
     <title>AdminBite admin Template - The Ultimate Multipurpose admin template</title>
-    <!-- Custom CSS -->
+    
     <link href="dist/css/style.min.css" rel="stylesheet">
   
 </head>
 
 <body>
+
     <div class="main-wrapper">
         <!-- ============================================================== -->
         <!-- Preloader - style you can find in spinners.css -->
@@ -51,18 +76,18 @@ include_once 'config.php';
                     <!-- Form -->
                     <div class="row">
                         <div class="col-12">
-                            <form class="form-horizontal m-t-20" id="loginform" action="index.php">
+                            <form class="form-horizontal m-t-20" id="loginform" action="" method="POST">
                                 <div class="input-group mb-3">
                                     <div class="input-group-prepend">
                                         <span class="input-group-text" id="basic-addon1"><i class="ti-user"></i></span>
                                     </div>
-                                    <input type="text" class="form-control form-control-lg" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
+                                    <input type="text" class="form-control form-control-lg" placeholder="Username" name="username" aria-label="Username" aria-describedby="basic-addon1">
                                 </div>
                                 <div class="input-group mb-3">
                                     <div class="input-group-prepend">
                                         <span class="input-group-text" id="basic-addon2"><i class="ti-pencil"></i></span>
                                     </div>
-                                    <input type="text" class="form-control form-control-lg" placeholder="Password" aria-label="Password" aria-describedby="basic-addon1">
+                                    <input type="text" class="form-control form-control-lg" placeholder="Password" name="password" aria-label="Password" aria-describedby="basic-addon1">
                                 </div>
                                 <div class="form-group row">
                                     <div class="col-md-12">
@@ -75,22 +100,11 @@ include_once 'config.php';
                                 </div>
                                 <div class="form-group text-center">
                                     <div class="col-xs-12 p-b-20">
-                                        <button class="btn btn-block btn-lg btn-info" type="submit">Log In</button>
+                                        <button class="btn btn-block btn-lg btn-info" type="submit" name="submit">Log In</button>
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <!-- <div class="col-xs-12 col-sm-12 col-md-12 m-t-10 text-center">
-                                        <div class="social">
-                                            <a href="javascript:void(0)" class="btn  btn-facebook" data-toggle="tooltip" title="" data-original-title="Login with Facebook"> <i aria-hidden="true" class="fab  fa-facebook"></i> </a>
-                                            <a href="javascript:void(0)" class="btn btn-googleplus" data-toggle="tooltip" title="" data-original-title="Login with Google"> <i aria-hidden="true" class="fab  fa-google-plus"></i> </a>
-                                        </div>
-                                    </div> -->
                                 </div>
-                                <!-- <div class="form-group m-b-0 m-t-10">
-                                    <div class="col-sm-12 text-center">
-                                        Don't have an account? <a href="authentication-register1.php" class="text-info m-l-5"><b>Sign Up</b></a>
-                                    </div>
-                                </div> -->
                             </form>
                         </div>
                     </div>
@@ -113,7 +127,7 @@ include_once 'config.php';
                             <!-- pwd -->
                             <div class="row m-t-20">
                                 <div class="col-12">
-                                    <button class="btn btn-block btn-lg btn-danger" type="submit" name="action">Reset</button>
+                                    <button class="btn btn-block btn-lg btn-danger" type="submit" name="submit">Reset</button>
                                 </div>
                             </div>
                         </form>
