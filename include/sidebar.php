@@ -52,31 +52,31 @@
                 </li>
 
                 <li class="sidebar-item">
-                    <a href="add-state.php" class="sidebar-link">
+                    <a href="state.php" class="sidebar-link">
                         <i class="mdi mdi-credit-card-plus"></i>
-                        <span class="hide-menu"> Add State </span>
+                        <span class="hide-menu"> State</span>
                     </a>
                 </li>
 
                 <li class="sidebar-item">
-                    <a href="add-district.php" class="sidebar-link">
+                    <a href="district.php" class="sidebar-link">
                         <i class="mdi mdi-credit-card-plus"></i>
-                        <span class="hide-menu"> Add District </span>
+                        <span class="hide-menu"> District</span>
                     </a>
                 </li>
 
                 <li class="sidebar-item">
-                    <a href="add-taluka.php" class="sidebar-link">
+                    <a href="taluka.php" class="sidebar-link">
                         <i class="mdi mdi-credit-card-plus"></i>
-                        <span class="hide-menu"> Add Taluka </span>
+                        <span class="hide-menu"> Taluka</span>
                     </a>
                 </li>
 
 
                 <li class="sidebar-item">
-                    <a href="add-franchisee.php" class="sidebar-link">
+                    <a href="franchisee.php" class="sidebar-link">
                         <i class="mdi mdi-credit-card-plus"></i>
-                        <span class="hide-menu"> Add Franchisee </span>
+                        <span class="hide-menu"> Franchisee</span>
                     </a>
                 </li>
                 

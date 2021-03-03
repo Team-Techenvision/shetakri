@@ -10,22 +10,26 @@
 		exit();
 	}
 
-// if (isset($_POST['submit'])) {
-// 	$username = $_POST['username'];
-// 	$password = md5($_POST['password']);
-// 	$sql = "SELECT * FROM adminusers WHERE username = '$username' && password = '$password' ";
+    $message='';
+    if (isset($_POST['submit'])) {
+    	$username = $_POST['username'];
+    	$password = md5($_POST['password']);
+    	$sql = "SELECT * FROM adminusers WHERE username = '$username' && password = '$password' ";
 
-// 	$result = $conn->query($sql);
-
-// 	$row = $result->fetch_assoc();
-
-// 	if ( $result->num_rows == 1 ) {		
-// 		$_SESSION["role"] = $row["userole"];
-// 		$_SESSION["id"] = $row["id"];
-// 		$_SESSION["username"] = $row["username"];
-// 		echo "success";
-// 	}	
-// }
+        $objDB->query($sql);
+        $result = $objDB->resultSet();              
+        $totalRows = $objDB->rowCount();
+      
+    	if ( $totalRows == 1 ) {	
+            $row = $objDB->single();    
+    		$_SESSION["role"] = $row["userole"];
+    		$_SESSION["id"] = $row["id"];
+    		$_SESSION["username"] = $row["username"];
+    		header('location:'.DOMAIN_NAME.'/admin');
+    	}	else {
+            $message = "<span class='error text-center'>Please check your credentials.</span>";
+        }
+    }
 
 ?>
 
@@ -104,6 +108,7 @@
                                     </div>
                                 </div>
                                 <div class="row">
+                                    <?php echo $message; ?>
                                 </div>
                             </form>
                         </div>
@@ -117,7 +122,7 @@
                     </div>
                     <div class="row m-t-20">
                         <!-- Form -->
-                        <form class="col-12" action="index.php">
+                        <form class="col-12" action="">
                             <!-- email -->
                             <div class="form-group row">
                                 <div class="col-12">
@@ -130,7 +135,7 @@
                                     <button class="btn btn-block btn-lg btn-danger" type="submit" name="submit">Reset</button>
                                 </div>
                             </div>
-                        </form>
+                        </form>                        
                     </div>
                 </div>
             </div>

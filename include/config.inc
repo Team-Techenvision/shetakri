@@ -25,9 +25,9 @@ define('DASH','DashBoard');
 define('PRODUCT','Product');
 define('ORDER','Order Management');
 
-define('DOMAIN_NAME','http://'.$_SERVER['SERVER_NAME'].'/kisan');
+define('DOMAIN_NAME','http://'.$_SERVER['SERVER_NAME'].'/kisan-2');
 
-define('FILE_PATH',$_SERVER['DOCUMENT_ROOT'].'/kisan');
+define('FILE_PATH',$_SERVER['DOCUMENT_ROOT'].'/kisan-2');
 $footer_copyright = '<div>&copy; '.TXDIRECT.'</div>';
 
 $htmlhead = '
