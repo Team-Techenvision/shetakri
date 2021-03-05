@@ -1,4 +1,15 @@
-<?php include '../include/header.php'; ?>
+<?php 
+    require_once('../include/master.inc'); 
+    $objDB = new Database();
+
+    $sql = "SELECT * FROM ".ADVERTISE." ";
+    $objDB->query($sql);
+    $results = $objDB->resultSet();  
+
+   
+
+    include '../include/header.php'; 
+?>
     <!-- ============================================================== -->
     <!-- Preloader - style you can find in spinners.css -->
     <!-- ============================================================== -->
@@ -76,30 +87,26 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <th scope="row">1</th>
-                                        <td>Mark</td>
-                                        <td>Maharatra</td>
-                                        <td>Kolhapur</td>
-                                        <td>Otto</td>
-                                        <td><i class="far fa-trash-alt"></i> &nbsp; &nbsp;<i class="far fa-edit"></i></td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">2</th>
-                                        <td>Jacob</td>
-                                        <td>Karnataka</td>
-                                        <td>Belgum</td>
-                                        <td>Thornton</td>
-                                        <td><i class="far fa-trash-alt"></i> &nbsp; &nbsp;<i class="far fa-edit"></i></td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">3</th>
-                                        <td>Larry</td>
-                                        <td>Goa</td>
-                                        <td>Panji</td>
-                                        <td>the Bird</td>
-                                        <td><i class="far fa-trash-alt"></i> &nbsp; &nbsp;<i class="far fa-edit"></i></td>
-                                    </tr>
+                                    <?php 
+                                
+                                    $i=1;
+                                    foreach ($results as $result) {
+                                        echo "
+                                            <tr>
+                                            <th scope='row'>$i</th>
+                                            <td>".$result["title"]."</td>
+                                            <td>".$result["mobile_number"]."</td>
+                                            <td>".$result["plan"]."</td>
+                                            <td>".$result["district"]."
+                                            </td>
+                                            <td><i class='far fa-trash-alt'></i> &nbsp; &nbsp;<i class='far fa-edit'></i>
+                                            </td>
+                                            </tr>
+                                        ";
+                                        $i++;
+                                    }
+                                ?>
+                                    
                                 </tbody>
                             </table>
                         </div>

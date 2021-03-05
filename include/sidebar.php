@@ -81,7 +81,7 @@
                 </li>
                 
                 <li class="sidebar-item">
-                    <a href="sales_repsentative.php" class=" sidebar-link">
+                    <a href="sales-repsentative.php" class=" sidebar-link">
                         <i class="mdi mdi-credit-card-plus"></i>
                         <span class="hide-menu"> Sales Repsentative</span>
                     </a>

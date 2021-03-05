@@ -22,6 +22,9 @@ if (!defined('STATE')) 	    define('STATE','state');
 if (!defined('SUBCATEGORY'))define('SUBCATEGORY','subcategory');
 if (!defined('TALUKA')) 	define('TALUKA','taluka');
 if (!defined('FRANCHISEE')) define('FRANCHISEE','franchisee');
+if (!defined('SALESREPSENTATIVE')) define('SALESREPSENTATIVE','sales_repsentative');
+if (!defined('FARMERSLIST')) define('FARMERSLIST',' farmerslist');
+if (!defined('ADVERTISE')) define('ADVERTISE',' advertise');
 
 
 //Shortforms

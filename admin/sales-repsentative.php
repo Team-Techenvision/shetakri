@@ -2,11 +2,9 @@
     require_once('../include/master.inc'); 
     $objDB = new Database();
 
-    $sql = "SELECT * FROM ".FARMERSLIST." ";
+    $sql = "SELECT * FROM ".SALESREPSENTATIVE." ";
     $objDB->query($sql);
     $results = $objDB->resultSet();  
-
-   
 
     include '../include/header.php'; 
 ?>
@@ -73,32 +71,44 @@
                     <div class="col-12">
                         <div class="card">
                             <div class="card-body">
-                                <h4 class="card-title">Farmers</h4>
+                             <div class="row">
+                                <div class="col-md-6">
+                                    <h4 class="card-title">Sales Repsentative</h4>
+                                </div>
+                                <div class="col-md-3 ">
+                                </div>
+                                <div class="col-md-3 center">
+                                   <a href="add-sales-repsentative.php"> <button type="submit" class="btn btn-info" name="submit">Add Sales Repsentative</button></a>
+                                </div>
+                              </div>
                             </div>
                             <table class="table m-b-0">
                                 <thead>
                                     <tr>
                                         <th scope="col">ID</th>
                                         <th scope="col">Name</th>
-                                        <th scope="col">State</th>
-                                        <th scope="col">Shop name</th>
-                                        <th scope="col">Shop address</th>
+                                        <th scope="col">Email address</th>
+                                        <th scope="col">phone number</th>
+                                        <th scope="col">Franchiee Name</th>
                                         <th scope="col">Actions</th>
+
                                     </tr>
                                 </thead>
                                 <tbody>
-                                <?php 
+                                <?php
                                 
                                     $i=1;
                                     foreach ($results as $result) {
+                                        
                                         echo "
                                             <tr>
                                             <th scope='row'>$i</th>
                                             <td>".$result["name"]."</td>
-                                            <td>".$result["state"]."</td>
-                                            <td>".$result["shop_name"]."</td>
-                                            <td>".$result["shop_address"]."
+                                            <td>".$result["email"]."</td>
+                                            <td>".$result["phone_number"]."</td>
+                                            <td>".$result["franchiee_name"]."
                                             </td>
+                                            
                                             <td><i class='far fa-trash-alt'></i> &nbsp; &nbsp;<i class='far fa-edit'></i>
                                             </td>
                                             </tr>
@@ -106,12 +116,11 @@
                                         $i++;
                                     }
                                 ?>
-                                    
                                 </tbody>
                             </table>
                         </div>
                     </div>
-            
+        
                 </div>
                 <!-- ============================================================== -->
                 <!-- End PAge Content -->

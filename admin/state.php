@@ -99,7 +99,7 @@
                                             <tr>
                                             <th scope='row'>$i</th>
                                             <td>".$result["statename"]."</td>
-                                            <td><i class='far fa-trash-alt' onclick='deleteEntry(".$result["id"].")'></i> &nbsp; &nbsp;<i class='far fa-edit'></i></td>
+                                            <td><i class='far fa-trash-alt'></i> &nbsp; &nbsp;<i class='far fa-edit'></i></td>
                                             </tr>";
                                             $i++;
                                         }
@@ -357,21 +357,3 @@
     <div class="chat-windows"></div>
   
     <?php include '../include/footer.php'; ?>
-
-<script type="text/javascript">
-    function deleteEntry(id) {
-        var DeleteId = id;
-        var tableName = "<?php echo STATE ?>";
-        var result = confirm("Want to delete?");
-        if (result) {
-            $.post(
-            "ajax/actions.php",
-            { deletethis_id: DeleteId,
-              table_name: tableName },
-            function(data) {
-                alert(data);
-                location.reload();
-            }); 
-        }    
-    }
-</script>    

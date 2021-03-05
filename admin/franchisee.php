@@ -1,4 +1,13 @@
-<?php include '../include/header.php'; ?>
+<?php 
+    require_once('../include/master.inc'); 
+    $objDB = new Database();
+
+    $sql = "SELECT * FROM ".FRANCHISEE." ";
+    $objDB->query($sql);
+    $results = $objDB->resultSet();  
+
+    include '../include/header.php'; 
+?>
     <!-- ============================================================== -->
     <!-- Preloader - style you can find in spinners.css -->
     <!-- ============================================================== -->
@@ -83,7 +92,7 @@
                                         <th scope="col">Contact number</th>
                                         <th scope="col">Email address</th>
                                         <th scope="col">Username</th>
-                                        <th scope="col">Password</th>
+                                        
                                         <th scope="col">State name</th>
                                         <th scope="col">District name</th>
 
@@ -91,18 +100,30 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <th scope="row">1</th>
-                                        <td>Mark</td> 
-                                        <td>Mark</td>
-                                        <td>123456</td>
-                                        <td>abc@gmail.com</td>
-                                        <td>****</td>
-                                        <td>Mark</td>
-                                        <td>DC</td>
-                                        <td>NY</td>     
-                                        <td><i class="far fa-trash-alt"></i> &nbsp; &nbsp;<i class="far fa-edit"></i></td>
-                                    </tr>
+                                <?php 
+                                    $Statetable=STATE;
+                                    $Districttable=DISTRICT;
+                                    $i=1;
+                                    foreach ($results as $result) {
+                                        $StateId= $result["state"];
+                                        $DistrictId= $result["district"];
+                                        echo "
+                                            <tr>
+                                            <th scope='row'>$i</th>
+                                            <td>".$result["firstname"]."</td>
+                                                <td>".$result["lastname"]."</td>
+                                                <td>".$result["contact_number"]."</td>
+                                                <td>".$result["email"]."</td>
+                                                <td>".$result["username"]."</td>
+                                                
+                                                <td>";GetNameById($DistrictId,$Districttable); echo "</td>
+                                                <td>";GetNameById($StateId,$Statetable); echo "</td>
+                                                <td><i class='far fa-trash-alt'></i> &nbsp; &nbsp;<i class='far fa-edit'></i></td>
+                                            </tr>
+                                        ";
+                                        $i++;
+                                    }
+                                ?>
                                 </tbody>
                             </table>
                         </div>
