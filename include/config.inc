@@ -12,9 +12,16 @@ if (!defined('USER')) 	define("USER","U");
 
 //Table Names
 if (!defined('USERS')) 		define('USERS','adminusers');
-if (!defined('BANNER')) 	define('BANNER','banner');
-if (!defined('PRODUCTSQUANTITY')) 	define('PRODUCTSQUANTITY','quantitydiscount');
-if (!defined('ORDERS')) 	define('ORDERS','orders');
+if (!defined('BANNER')) 	define('BANNER','bannerCATEGORY');
+if (!defined('CATEGORY')) 	define('CATEGORY','category');
+if (!defined('DISTRICT')) 	define('DISTRICT','district');
+if (!defined('FARMERS')) 	define('FARMERS','farmersLISTING');
+if (!defined('LISTING')) 	define('LISTING','listing');
+if (!defined('SALESUSER')) 	define('SALESUSER','salesuserSTATE');
+if (!defined('STATE')) 	    define('STATE','state');
+if (!defined('SUBCATEGORY'))define('SUBCATEGORY','subcategory');
+if (!defined('TALUKA')) 	define('TALUKA','taluka');
+if (!defined('FRANCHISEE')) define('FRANCHISEE','franchisee');
 
 
 //Shortforms

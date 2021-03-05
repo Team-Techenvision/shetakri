@@ -44,14 +44,6 @@
                     </div>
                     <div class="col-7 align-self-center">
                         <div class="d-flex no-block justify-content-end align-items-center">
-                            <nav aria-label="breadcrumb">
-                                <ol class="breadcrumb">
-                                    <li class="breadcrumb-item">
-                                        <a href="#">Home</a>
-                                    </li>
-                                    <li class="breadcrumb-item active" aria-current="page">Library</li>
-                                </ol>
-                            </nav>
                         </div>
                     </div>
                 </div>
@@ -136,7 +128,7 @@
             <!-- footer -->
             <!-- ============================================================== -->
             <footer class="footer text-center">
-              All Rights Reserved by AdminBite admin. Designed and Developed by <a href="https://wrappixel.com">WrapPixel</a>.
+             All Rights Reserved by Krishinandan. Developed by <a href="#">Techenvision</a>.
             </footer>
             <!-- ============================================================== -->
             <!-- End footer -->

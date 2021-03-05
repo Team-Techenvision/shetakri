@@ -1,16 +1,25 @@
 form .error {
   color: #ff0000;
 }
-
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
-
 input[type=number] {
   -moz-appearance: textfield;
 }
 .col-md-3.center {
     text-align: center !important;
+}
+span.success {
+	color: green;
+	font-weight: 500;
+	margin: 4px;
+}
+a.service-panel-toggle {
+    display: none !important;
+}
+.rounded-circle {
+    border: 1px solid grey !important;
 }

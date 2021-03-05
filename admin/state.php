@@ -1,4 +1,13 @@
-<?php include '../include/header.php'; ?>
+<?php 
+
+    require_once('../include/master.inc');     
+    $objDB = new Database();
+
+    $sql = "SELECT * FROM ".STATE." ";
+    $objDB->query($sql);
+    $results = $objDB->resultSet();              
+    
+    include '../include/header.php'; ?>
     <!-- ============================================================== -->
     <!-- Preloader - style you can find in spinners.css -->
     <!-- ============================================================== -->
@@ -44,14 +53,6 @@
                     </div>
                     <div class="col-7 align-self-center">
                         <div class="d-flex no-block justify-content-end align-items-center">
-                            <nav aria-label="breadcrumb">
-                                <ol class="breadcrumb">
-                                    <li class="breadcrumb-item">
-                                        <a href="#">Home</a>
-                                    </li>
-                                    <li class="breadcrumb-item active" aria-current="page">Library</li>
-                                </ol>
-                            </nav>
                         </div>
                     </div>
                 </div>
@@ -91,21 +92,18 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <th scope="row">1</th>
-                                        <td>Mark</td>
-                                        <td><i class="far fa-trash-alt"></i> &nbsp; &nbsp;<i class="far fa-edit"></i></td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">2</th>
-                                        <td>Jacob</td>
-                                        <td><i class="far fa-trash-alt"></i> &nbsp; &nbsp;<i class="far fa-edit"></i></td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">3</th>
-                                        <td>Larry</td>
-                                        <td><i class="far fa-trash-alt"></i> &nbsp; &nbsp;<i class="far fa-edit"></i></td>
-                                    </tr>
+                                    <?php 
+                                        $i=1;
+                                        foreach ($results as $result) {
+                                            echo "
+                                            <tr>
+                                            <th scope='row'>$i</th>
+                                            <td>".$result["statename"]."</td>
+                                            <td><i class='far fa-trash-alt' onclick='deleteEntry(".$result["id"].")'></i> &nbsp; &nbsp;<i class='far fa-edit'></i></td>
+                                            </tr>";
+                                            $i++;
+                                        }
+                                    ?>                                    
                                 </tbody>
                             </table>
                         </div>
@@ -130,7 +128,7 @@
             <!-- footer -->
             <!-- ============================================================== -->
             <footer class="footer text-center">
-              All Rights Reserved by admin. Designed and Developed by <a href="#">Admin</a>.
+             All Rights Reserved by Krishinandan. Developed by <a href="#">Techenvision</a>.
             </footer>
             <!-- ============================================================== -->
             <!-- End footer -->
@@ -359,3 +357,21 @@
     <div class="chat-windows"></div>
   
     <?php include '../include/footer.php'; ?>
+
+<script type="text/javascript">
+    function deleteEntry(id) {
+        var DeleteId = id;
+        var tableName = "<?php echo STATE ?>";
+        var result = confirm("Want to delete?");
+        if (result) {
+            $.post(
+            "ajax/actions.php",
+            { deletethis_id: DeleteId,
+              table_name: tableName },
+            function(data) {
+                alert(data);
+                location.reload();
+            }); 
+        }    
+    }
+</script>    

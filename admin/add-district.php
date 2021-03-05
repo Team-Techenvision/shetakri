@@ -1,15 +1,31 @@
-<?php 
-    require_once('../include/master.inc'); 
-    include '../include/header.php'; 
+<?php
 
-    if (isset($_POST['submit'])) {
-        // $_POST["statename"];
-        // $_POST["districtname"];
-        
-    }
+require_once('../include/master.inc');
+
+$objDB = new Database();
+$message = "";
+
+if (isset($_POST['submit'])) {
+
+    $stateId = $_POST['stateId'];
+    $districtname = $_POST['districtname'];
+
+    $sql = "INSERT INTO ".DISTRICT." (stateid,districtname) VALUES ('$stateId','$districtname')";
+
+       $objDB->query($sql);
+       $result = $objDB->execute();              
+       //$totalRows = $objDB->rowCount();
+
+       if ($result) {
+           $message = "<span class='success'>District added successfully.</span>";
+       } else {
+            $message = "<span class='error'>Error! please try again later.</span>";
+       }
+}
 
 
 ?>
+<?php include '../include/header.php'; ?>
     <!-- ============================================================== -->
     <!-- Preloader - style you can find in spinners.css -->
     <!-- ============================================================== -->
@@ -56,14 +72,6 @@
                     </div>
                     <div class="col-7 align-self-center">
                         <div class="d-flex no-block justify-content-end align-items-center">
-                            <nav aria-label="breadcrumb">
-                                <ol class="breadcrumb">
-                                    <li class="breadcrumb-item">
-                                        <a href="#">Home</a>
-                                    </li>
-                                    <li class="breadcrumb-item active" aria-current="page">Library</li>
-                                </ol>
-                            </nav>
                         </div>
                     </div>
                 </div>
@@ -82,12 +90,12 @@
                     <div class="card">
                         <div class="card-body">
                             <h4 class="card-title">Add District</h4>
-                            <form name="addDistrict" action=""  method="POST">
+                            <form name='registration'  method="POST" action="">
                  
                                 <div class="form-group">
                                     <h5>State Select <span class="text-danger">*</span></h5>
                                     <div class="controls">
-                                        <select name="statename" id="statename" required class="form-control" >
+                                        <select name="stateId" id="stateId" required class="form-control" >
                                             <option value=""  >Select State</option>            
                                             <option value="1">Maharashtra</option>
                                             <option value="2">Karnataka</option>
@@ -108,6 +116,7 @@
                                 </div>
                             </form>
                         </div>
+                        <?php echo $message; ?>
                     </div>
                 </div>
                 <!-- ============================================================== -->
@@ -128,7 +137,7 @@
             <!-- footer -->
             <!-- ============================================================== -->
             <footer class="footer text-center">
-             All Rights Reserved by AdminBite admin. Designed and Developed by <a href="https://wrappixel.com">WrapPixel</a>.
+             All Rights Reserved by Krishinandan. Developed by <a href="#">Techenvision</a>.
             </footer>
             <!-- ============================================================== -->
             <!-- End footer -->

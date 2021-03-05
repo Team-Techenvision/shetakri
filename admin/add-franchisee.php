@@ -1,4 +1,8 @@
-<?php include '../include/header.php'; ?>
+<?php 
+    require_once('../include/master.inc');
+    $objDB = new Database();
+    $message = "";
+    include '../include/header.php'; ?>
 
     <!-- ============================================================== -->
     <!-- Preloader - style you can find in spinners.css -->
@@ -43,15 +47,7 @@
                         </div>
                     </div>
                     <div class="col-7 align-self-center">
-                        <div class="d-flex no-block justify-content-end align-items-center">
-                            <nav aria-label="breadcrumb">
-                                <ol class="breadcrumb">
-                                    <li class="breadcrumb-item">
-                                        <a href="#">Home</a>
-                                    </li>
-                                    <li class="breadcrumb-item active" aria-current="page">Library</li>
-                                </ol>
-                            </nav>
+                        <div class="d-flex no-block justify-content-end align-items-center">                            
                         </div>
                     </div>
                 </div>
@@ -70,13 +66,12 @@
                     <div class="card">
                         <div class="card-body">
                             <h4 class="card-title">Add Franchisee</h4>
-                            <form name='registration'  method="POST">
+                            <form name='franchisee-registration' action=""  method="POST">
                                 <div class="form-group">
                                     <h5>First name<span class="text-danger">*</span></h5>
                                     <div class="controls">
                                         <input type="text" name="firstname" class="form-control" > 
-                                    </div>
-                                    
+                                    </div>                                    
                                 </div>
                                 <div class="form-group">
                                     <h5>Last name<span class="text-danger">*</span></h5>
@@ -105,9 +100,7 @@
                                 <div class="form-group">
                                     <h5>Password<span class="text-danger">*</span></h5>
                                     <div class="controls">
-                                        <div class="input-group">
-                                           <input type="password" class="form-control" id="password" name="password"><br>
-                                        </div>
+                                        <input type="password" class="form-control" id="password" name="password"><br>
                                     </div>
                                 </div>
 
@@ -165,7 +158,7 @@
             <!-- footer -->
             <!-- ============================================================== -->
             <footer class="footer text-center">
-             All Rights Reserved by Admin. Designed and Developed by <a href="#">Admin</a>.
+             All Rights Reserved by Krishinandan. Developed by <a href="#">Techenvision</a>.
             </footer>
             <!-- ============================================================== -->
             <!-- End footer -->

@@ -1,5 +1,25 @@
-<?php 
-    require_once('../include/master.inc'); 
+<?php
+
+require_once('../include/master.inc');
+$objDB = new Database();
+$message = "";
+
+if (isset($_POST['submit'])) {
+
+    $stateId = $_POST['stateId'];
+    $districtId = $_POST['districtId'];
+    $talukaname = $_POST['talukaname'];
+
+    $sql = "INSERT INTO ".TALUKA." (talukaname, stateid, districtid) VALUES ('$talukaname', '$stateId', '$districtId')";
+    $objDB->query($sql);
+    $result = $objDB->execute();              
+    if ($result) {
+        $message = "<span class='success'>District added successfully.</span>";
+    } else {
+        $message = "<span class='error'>Error! please try again later.</span>";
+    }
+}
+
     include '../include/header.php'; 
 ?>
     <!-- ============================================================== -->
@@ -46,14 +66,6 @@
                     </div>
                     <div class="col-7 align-self-center">
                         <div class="d-flex no-block justify-content-end align-items-center">
-                            <nav aria-label="breadcrumb">
-                                <ol class="breadcrumb">
-                                    <li class="breadcrumb-item">
-                                        <a href="#">Home</a>
-                                    </li>
-                                    <li class="breadcrumb-item active" aria-current="page">Library</li>
-                                </ol>
-                            </nav>
                         </div>
                     </div>
                 </div>
@@ -77,7 +89,7 @@
                                 <div class="form-group">
                                     <h5>State Select <span class="text-danger">*</span></h5>
                                     <div class="controls">
-                                        <select name="statename" id="statename" required class="form-control">
+                                        <select name="stateId" id="stateId" required class="form-control">
                                             <option value="">Select State</option>
                                             <option value="1">Maharashtra</option>
                                             <option value="2">Karnataka</option>
@@ -91,7 +103,7 @@
                                 <div class="form-group">
                                     <h5>District Select <span class="text-danger">*</span></h5>
                                     <div class="controls">
-                                        <select name="districtname" id="districtname" required class="form-control">
+                                        <select name="districtId" id="districtId" required class="form-control">
                                             <option value="">Select District</option>
                                             <option value="1">Kolhapur</option>
                                             <option value="2">Sangli</option>
@@ -113,6 +125,7 @@
                                     <button type="submit" name="submit" class="btn btn-info">Submit</button>                                    
                                 </div>
                             </form>
+                            <?php echo $message; ?>
                         </div>
                     </div>
                 </div>
@@ -134,7 +147,7 @@
             <!-- footer -->
             <!-- ============================================================== -->
             <footer class="footer text-center">
-             All Rights Reserved by AdminBite admin. Designed and Developed by <a href="https://wrappixel.com">WrapPixel</a>.
+             All Rights Reserved by Krishinandan. Developed by <a href="#">Techenvision</a>.
             </footer>
             <!-- ============================================================== -->
             <!-- End footer -->
@@ -371,7 +384,7 @@
         jQuery.validator.addMethod("lettersonly", function(value, element) {
           return this.optional(element) || /^[a-z]+$/i.test(value);
         }, "Letters only please"); 
-      $("form[name='registration']").validate({
+      $("form[name='addTaluka']").validate({
         
         rules: {
           talukaname: {

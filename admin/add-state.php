@@ -1,3 +1,28 @@
+<?php
+
+require_once('../include/master.inc');
+$objDB = new Database();
+$message = "";
+
+if (isset($_POST['submit'])) {
+
+    $statename = $_POST['statename'];
+
+    $sql = "INSERT INTO ".STATE." (statename)
+    VALUES ('$statename')";
+
+       $objDB->query($sql);
+       $result = $objDB->execute();              
+       
+       if ($result) {
+           $message = "<span class='success'>State added successfully.</span>";
+       } else {
+            $message = "<span class='error'>Error! please try again later.</span>";
+       }
+}
+
+
+?>
 <?php include '../include/header.php'; ?>
 
 
@@ -46,14 +71,6 @@
                     </div>
                     <div class="col-7 align-self-center">
                         <div class="d-flex no-block justify-content-end align-items-center">
-                            <nav aria-label="breadcrumb">
-                                <ol class="breadcrumb">
-                                    <li class="breadcrumb-item">
-                                        <a href="#">Home</a>
-                                    </li>
-                                    <li class="breadcrumb-item active" aria-current="page">Library</li>
-                                </ol>
-                            </nav>
                         </div>
                     </div>
                 </div>
@@ -91,6 +108,7 @@
                                 </div>
                             </form>
                         </div>
+                        <?php echo $message; ?>
                     </div>
                 </div>
                 <!-- ============================================================== -->
@@ -111,7 +129,7 @@
             <!-- footer -->
             <!-- ============================================================== -->
             <footer class="footer text-center">
-             All Rights Reserved by AdminBite admin. Designed and Developed by <a href="https://wrappixel.com">WrapPixel</a>.
+             All Rights Reserved by Krishinandan. Developed by <a href="#">Techenvision</a>.
             </footer>
             <!-- ============================================================== -->
             <!-- End footer -->
@@ -343,7 +361,7 @@
     <script>
     $(function() {  
         jQuery.validator.addMethod("lettersonly", function(value, element) {
-          return this.optional(element) || /^[a-z]+$/i.test(value);
+          return this.optional(element) || /^[a-zA-Z\s]+$/i.test(value);
         }, "Letters only please"); 
       $("form[name='registration']").validate({
         

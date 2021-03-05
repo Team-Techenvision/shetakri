@@ -13,7 +13,7 @@
                 <b class="logo-icon">
                     <!--You can put here icon as well // <i class="wi wi-sunset"></i> //-->
                     <!-- Dark Logo icon -->
-                    <img src="../assets/images/logo-icon.png" alt="homepage" class="dark-logo" />
+                    <img src="../assets/images/logo" alt="homepage" class="dark-logo" />
                     <!-- Light Logo icon -->
                     <img src="../assets/images/logo-light-icon.png" alt="homepage" class="light-logo" />
                 </b>
@@ -72,7 +72,7 @@
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle text-muted waves-effect waves-dark pro-pic" href="" data-toggle="dropdown" aria-haspopup="true"
                         aria-expanded="false">
-                        <img src="../assets/images/users/1.jpg" alt="user" class="rounded-circle" width="31">
+                        <img src="../assets/images/users/logo.jpg" alt="user" class="rounded-circle" width="31">
                     </a>
                     <div class="dropdown-menu dropdown-menu-right user-dd animated flipInY">
                         <span class="with-arrow">
@@ -80,11 +80,11 @@
                         </span>
                         <div class="d-flex no-block align-items-center p-15 bg-primary text-white m-b-10">
                             <div class="">
-                                <img src="../assets/images/users/1.jpg" alt="user" class="img-circle" width="60">
+                                <img src="../assets/images/users/logo.jpg" alt="user" class="img-circle" width="60">
                             </div>
                             <div class="m-l-10">
-                                <h4 class="m-b-0">Steave Jobs</h4>
-                                <p class=" m-b-0">varun@gmail.com</p>
+                                <h4 class="m-b-0">Abhijeet Suryawanshi</h4>
+                                <p class=" m-b-0">Abhijeets@gmail.com</p>
                             </div>
                         </div>
                         <a class="dropdown-item" href="javascript:void(0)">
